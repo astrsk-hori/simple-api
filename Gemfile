@@ -46,7 +46,7 @@ group :development do
 
   gem 'pry-rails'
   gem 'pry-doc'
-  gem 'pry-debugger'
+  gem 'pry-byebug'
   gem 'pry-coolline'
   gem 'hirb'
   gem 'hirb-unicode'
