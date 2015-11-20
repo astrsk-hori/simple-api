@@ -1,0 +1,23 @@
+datastore:
+  image: busybox
+  volumes:
+      - /opt/datastore:/var/lib/mysql
+  container_name: rails-datastore
+mysql:
+  image: mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: password
+  ports:
+    - "3306:3306"
+  volumes_from:
+    - datastore
+  container_name: testdb
+rails:
+  build: .
+  ports:
+    - "3000:3000"
+  volumes:
+    -  .:/usr/src/app
+  links:
+    - mysql:testdb
+  container_name: simple-api
