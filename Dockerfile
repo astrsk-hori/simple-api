@@ -22,3 +22,4 @@ ENV DB_ADAPTER mysql2
 ENV DATABASE_URL ${DB_ADAPTER}://${DB_USER}:${DB_PASSWORD}@db/${DB_NAME}
 
 EXPOSE 3000
+CMD ["bin/rails", "server", "-b", "0.0.0.0"]
